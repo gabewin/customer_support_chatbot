@@ -1,12 +1,13 @@
 'use client'
 import Image from "next/image";
 import {useState} from 'react'
-import {Box, Stack, TextField, Button} from '@mui/material'
+import {Box, Stack, TextField, Button, Typography} from '@mui/material'
+import { marked } from 'marked'
 
 export default function Home() {
   const [messages, setMessages] = useState([{
     role: 'assistant',
-    content: `Hi, I'm the Headstarter support agent. How can I help you today?`
+    content: `Welcome to the Expats in The Netherlands help center. How can I assist you today?`
   }])
 
   const [message, setMessage] = useState('')
@@ -93,7 +94,9 @@ export default function Home() {
                 borderRadius={16}
                 p={3}
               >
-                {message.content}
+                <Typography component="div">
+                  <article dangerouslySetInnerHTML={{ __html: message.content.replace("```html", "").replace("```", "")}} />
+                </Typography>
               </Box>    
             </Box>
           ))}
