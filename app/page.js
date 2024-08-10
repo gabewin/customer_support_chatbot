@@ -112,7 +112,6 @@ export default function Home() {
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={(ev) => {
               if (ev.key === 'Enter') {
-                // Do code here
                 sendMessage();
               }
             }}
@@ -123,7 +122,6 @@ export default function Home() {
           >
             Send
           </Button>
-
         </Stack>
       </Stack>
     </Box>
